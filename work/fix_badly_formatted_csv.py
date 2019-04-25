@@ -1,6 +1,5 @@
 import sys
 import re
-import fileinput
 
 '''
 Note: This script cleans up ill-formatted columns in the 'page_{month}.csv' files.
