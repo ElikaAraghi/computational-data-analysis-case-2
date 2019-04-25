@@ -3,8 +3,8 @@ import re
 import fileinput
 
 '''
-Note: This data cleans up ill-formatted columns in the 'page_{month}.csv' files.
-Run this script from the location of the corrupted file
+Note: This script cleans up ill-formatted columns in the 'page_{month}.csv' files.
+Run this script from the location of the corrupted file.
 '''
 file_name = sys.argv[1]
 fixed_dir_path = '../data_fixed/'
