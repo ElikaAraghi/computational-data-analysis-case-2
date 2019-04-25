@@ -4,6 +4,12 @@ import numpy as np
 from sklearn.datasets.samples_generator import make_blobs
 from sklearn.cluster import KMeans
 
+import sys
+file_name = sys.argv[1]
+data_path = '../../data_fixed/'
+fixed_file_name = file_name.split('.')[0] + '_fixed' + '.' + file_name.split('.')[1]
+import pdb;pdb.set_trace()
+
 X, y_true = make_blobs(n_samples=300, centers=4,
                        cluster_std=0.60, random_state=0)
 kmeans = KMeans(n_clusters=4)
