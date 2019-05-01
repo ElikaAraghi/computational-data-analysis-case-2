@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from langdetect import detect
+import pickle
 
 ''' Utils '''
 def get_page_title_languages(titles):
@@ -48,4 +49,9 @@ for _, row in data.iterrows():
         print('Progress: processed {0} session numbers'.format(counter))
     counter = counter + 1
 import pdb; pdb.set_trace()
+
+''' Pickle file creation '''
+pickle_out = open("pic.oct","wb")
+pickle.dump(session_dict,pickle_out)
+pickle_out.close()
 
