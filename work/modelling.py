@@ -59,7 +59,7 @@ if plot == 'Elbow':
 ''' Silhouette method for optimal k'''
 if plot == 'Silhouette':
     silhouette = []
-    K = range(2,10)
+    K = range(2,15)
     for n_clusters in K:
         print("Trying for {0} clusters...".format(n_clusters))
         # Create a subplot with 1 row and 1 columns
@@ -67,7 +67,7 @@ if plot == 'Silhouette':
         fig.set_size_inches(18, 7)
 
         # The 1st subplot is the silhouette plot
-        ax1.set_xlim([-1, 1])
+        ax1.set_xlim([-0.1, 1])
         # The (n_clusters+1)*10 is for inserting blank space between silhouette
         # plots of individual clusters, to demarcate them clearly.
         ax1.set_ylim([0, len(data_vectorized) + (n_clusters + 1) * 10])
