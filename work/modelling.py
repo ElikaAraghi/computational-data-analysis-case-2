@@ -19,7 +19,7 @@ with open(pickle_path + 'session_dict_aug.pickle', 'rb') as handle:
     session_dict = pickle.load(handle)
 
 data_vectorized = pd.DataFrame.from_dict(session_dict, orient='index')
-data_vectorized = data_vectorized.sample(n=1000, random_state=1)
+#data_vectorized = data_vectorized.sample(n=1000, random_state=1)
 data_vectorized = data_vectorized.values
 
 ''' PCA '''
@@ -44,7 +44,7 @@ data_vectorized = PCA(n_components=optimal_number_of_principal_components).fit_t
 ''' Elbow method for optimal k'''
 if plot == 'Elbow':
     sum_of_squared_distances = []
-    K = range(2,10)
+    K = range(2,11)
     for k in K:
         print("Trying for {0} clusters...".format(k))
         km = KMeans(n_clusters=k, random_state=1)
@@ -59,7 +59,7 @@ if plot == 'Elbow':
 ''' Silhouette method for optimal k'''
 if plot == 'Silhouette':
     silhouette = []
-    K = range(2,15)
+    K = range(2,11)
     for n_clusters in K:
         print("Trying for {0} clusters...".format(n_clusters))
         # Create a subplot with 1 row and 1 columns
