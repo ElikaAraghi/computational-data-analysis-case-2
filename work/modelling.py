@@ -19,7 +19,7 @@ with open(pickle_path + 'session_dict_aug.pickle', 'rb') as handle:
     session_dict = pickle.load(handle)
 
 data_vectorized = pd.DataFrame.from_dict(session_dict, orient='index')
-#data_vectorized = data_vectorized.sample(n=1000, random_state=1)
+data_vectorized = data_vectorized.sample(n=1000, random_state=1)
 data_vectorized = data_vectorized.values
 
 ''' PCA '''
@@ -125,13 +125,10 @@ if plot == 'Silhouette':
 
     plt.show()
 
-optimal_k = 6
+optimal_k = 4
 kmeans = KMeans(n_clusters=optimal_k)
 kmeans.fit(data_vectorized)
 y_kmeans = kmeans.predict(data_vectorized)
-import pdb; pdb.set_trace()
-with open(pickle_path + 'clusters_k_6.pickle', 'wb') as handle:
-    pickle.dump(y_kmeans, handle)
 
 plt.scatter(data_vectorized[:, 0], data_vectorized[:, 1], c=y_kmeans, s=50, cmap='viridis')
 plt.show()
